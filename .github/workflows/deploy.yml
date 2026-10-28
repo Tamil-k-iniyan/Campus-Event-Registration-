@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -40,8 +40,13 @@ jobs:
       - name: Build Frontend for GitHub Pages
         run: |
           cd frontend
-          npm run build -- --base=/Campus-Event-Registration-/
-          cp dist/index.html dist/404.html
+          npm run build
+
+      - name: Deploy to gh-pages branch
+        uses: jamesives/github-pages-deploy-action@v4
+        with:
+          folder: frontend/dist
+          branch: gh-pages
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -51,6 +56,6 @@ jobs:
         with:
           path: 'frontend/dist'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages Native
         id: deployment
         uses: actions/deploy-pages@v4
