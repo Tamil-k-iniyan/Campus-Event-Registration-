@@ -26,6 +26,7 @@ A modern, full-stack, enterprise-grade web application for university event disc
 - [Automated API Testing](#automated-api-testing)
 - [REST API Endpoints](#rest-api-endpoints)
 - [Documentation & Viva Voce Preparation](#documentation--viva-voce-preparation)
+- [Live Deployment & Hosting](#live-deployment--hosting)
 - [License](#license)
 
 ---
@@ -85,18 +86,18 @@ The **Campus Event Registration and Management System** solves these challenges 
 ## System Architecture
 
 ```
-[ React 18 + Vite (Port 5173) ]
-             |
-             | HTTP REST API (JSON / JWT)
-             v
-[ Express.js + Node.js (Port 5000) ]
+[ React 18 + Vite (Port 5173 / GitHub Pages / Vercel) ]
+                         |
+                         | HTTP REST API (JSON / JWT)
+                         v
+[ Express.js + Node.js (Port 5000 / Render / Railway) ]
    ├── Helmet & CORS Security Middleware
    ├── JWT Auth & Role Authorization Middleware
    ├── express-validator Middleware
    └── Central Error Handler
-             |
-             v
-[ MongoDB Engine (campus_events) ]
+                         |
+                         v
+[ MongoDB Engine (campus_events / Atlas) ]
    ├── users (Unique email, hashed passwords)
    ├── events (Indexed on eventDate, status, category)
    └── registrations (Compound Unique Index: student + event)
@@ -185,6 +186,9 @@ campus-event-management/
 │   ├── VIVA_QUESTIONS.md         # 25 viva voce answers and demo guide
 │   ├── PROJECT_REPORT.md         # Comprehensive academic report (Markdown)
 │   └── PROJECT_REPORT.docx       # Editable Microsoft Word academic report
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions Pages deployment
 ├── .gitignore
 ├── LICENSE
 └── README.md
