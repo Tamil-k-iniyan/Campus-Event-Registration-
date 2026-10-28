@@ -17,6 +17,8 @@
 - **Academic Year:** 2025 – 2026
 - **Project Supervisor / Faculty Guide:** [NAME & DESIGNATION OF FACULTY GUIDE]
 - **Date of Submission:** [DATE OF SUBMISSION]
+- **GitHub Repository:** https://github.com/Tamil-k-iniyan/Campus-Event-Registration-
+- **Live Website URL:** https://tamil-k-iniyan.github.io/Campus-Event-Registration-/
 
 ---
 
